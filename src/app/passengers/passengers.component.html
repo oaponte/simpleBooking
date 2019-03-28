@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h6><strong>Pasajeros:</strong> {{ countP$ | async }}</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="firstName">Primer nombre</label>
+                <input type="text" class="form-control" id="firstName" #firstName placeholder="Primer nombre" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="lastName">Segundo nombre</label>
+                <input type="text" class="form-control" id="lastName" #lastName placeholder="Fecha" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="birthDay">Fecha de nacimiento</label>
+                <input type="text" class="form-control" id="birthDay" #birthDay placeholder="Fecha de nacimiento" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn-primary" (click)="addPassengers()">Guardar</button>
+        </div>
+    </div>
+</div>
+<div>
+    &nbsp;
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let passenger of dataSource">
+                    {{passenger.position}} &nbsp; {{passenger.firstName}} &nbsp; {{passenger.lastName}} &nbsp; {{passenger.birthDay}} &nbsp;
+                    <button class="btn-danger" (click)="removePassengers(passenger.position)">Borrar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,2 +1,2 @@
-# simpleBooking
-Simple Booking for Amadeus test
+# Booking
+SimpleBooking

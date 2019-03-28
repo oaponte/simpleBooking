@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h6><strong>Vuelos Disponibles:</strong> {{ count$ | async }}</h6>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="origin">Origen</label>
+            <select class="form-control" id="origen" required #origen>
+                <option *ngFor="let ciudad of ciudades" [value]="ciudad.value">{{ciudad.nombre}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <label for="destino">Destino</label>
+            <select class="form-control" id="destino" required #destino>
+                <option *ngFor="let ciudad of ciudades" [value]="ciudad.value">{{ciudad.nombre}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="departureDate">Fecha</label>
+                <input type="text" class="form-control" id="departureDate" #departureDate placeholder="Fecha" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="form-group">
+                <label for="price">Precio</label>
+                <input type="text" class="form-control" id="price" #price placeholder="Precio" required>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn-primary" (click)="addFlight()">Guardar</button>
+        </div>
+    </div>
+</div>
+<div>
+    &nbsp;
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let flight of dataSource">
+                    {{flight.position}} &nbsp; {{flight.origen}} &nbsp; {{flight.destino}} &nbsp; {{flight.departureDate}} &nbsp; {{flight.price | number}} &nbsp;
+                    <button class="btn-danger" (click)="removeFlight(flight.position)">Borrar</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
